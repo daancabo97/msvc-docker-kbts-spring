@@ -1,4 +1,4 @@
-package com.daniel.springcloud.msvc.cursos;
+package src.main.java.com.daniel.springcloud.msvc.cursos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

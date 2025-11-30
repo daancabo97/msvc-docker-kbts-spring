@@ -17,7 +17,7 @@ public class UsuarioServiceImpl implements UsuarioService{
 
     @Override
     @Transactional(readOnly = true)
-    public List<Usuario> () {
+    public List<Usuario> listarUsuarios() {
         return (List<Usuario>) repository.findAll();
     }
 

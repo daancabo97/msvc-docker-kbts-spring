@@ -19,14 +19,14 @@ public class UsuarioController {
     private UsuarioService service;
 
     @GetMapping
-    public List<Usuario> listarUsuarios() {
+    public List<Usuario> listar() {
         return service.listarUsuarios();
     }
 
 
     // Detalle de usuario por id
     @GetMapping("/{id}")
-    public ResponseEntity<?> detalleUsuarios(@PathVariable Long id) {
+    public ResponseEntity<?> detalle(@PathVariable Long id) {
         Optional<Usuario> usuarioOptional = service.Listar_porId(id);
         if (usuarioOptional.isPresent()) {
             return ResponseEntity.ok(usuarioOptional.get());
@@ -36,13 +36,13 @@ public class UsuarioController {
 
 
     @PostMapping
-    public ResponseEntity<?> crearUsuarios(@RequestBody Usuario usuario) {
+    public ResponseEntity<?> crear(@RequestBody Usuario usuario) {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.guardarUsuario(usuario));
     }
 
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> editarUsuarios(@RequestBody Usuario usuario, @PathVariable Long id) {
+    public ResponseEntity<?> editar(@RequestBody Usuario usuario, @PathVariable Long id) {
         Optional<Usuario> usuarioOptional = service.Listar_porId(id);
         if (usuarioOptional.isPresent()) {
             Usuario usuarioDB = usuarioOptional.get();
@@ -55,7 +55,7 @@ public class UsuarioController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> eliminarUsuario(@PathVariable Long id) {
+    public ResponseEntity<?> eliminar(@PathVariable Long id) {
         Optional<Usuario> usuarioOptional = service.Listar_porId(id);
         if (usuarioOptional.isPresent()) {
             service.eliminarUsuario(id);
